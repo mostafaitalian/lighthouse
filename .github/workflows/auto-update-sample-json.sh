@@ -2,8 +2,6 @@ set +ex
 
 yarn update:sample-json
 
-date > blah.txt
-
 git config --global user.email "nobody@example.com"
 git config --global user.name "GitHub Action"
 
