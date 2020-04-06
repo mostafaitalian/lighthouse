@@ -1,9 +1,13 @@
+set +xe
+
 echo hello there
 
-ls
+date > blah.txt
 
-node --version
+git remote add github "https://$GITHUB_ACTOR:$GITHUB_TOKEN@github.com/$GITHUB_REPOSITORY.git"
+git pull github ${GITHUB_REF} --ff-only
 
-ls node_modules
+git add blah.txt
 
-# yarn
+git commit -m "Update sample json"
+git push github HEAD:${GITHUB_REF}

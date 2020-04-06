@@ -36,7 +36,6 @@ jobs:
 
     - run: yarn --frozen-lockfile
 
-    - run: ls
     # If there are any changes, this commits them and bails on this workflow.
     - name: Automatically update sample json
       # uses: ./.github/actions/auto-update-sample-json
