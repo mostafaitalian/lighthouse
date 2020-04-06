@@ -842,7 +842,7 @@
             "warnings": []
         },
         "font-size": {
-            "description": "Font sizes less than 12px are too small to be legible and require mobile visitors to \u201cpinch to zoom\u201d in order to read. Strive to have >60% of page text \u226512px. [Learn more](https://web.dev/font-size).",
+            "description": "WADDUP Font sizes less than 12px are too small to be legible and require mobile visitors to \u201cpinch to zoom\u201d in order to read. Strive to have >60% of page text \u226512px. [Learn more](https://web.dev/font-size).",
             "details": {
                 "headings": [
                     {
