@@ -6,8 +6,7 @@ on:
   push:
     branches:
       - master
-  # running on PRs disabled until we can disable the comments. https://github.com/paularmstrong/build-tracker-action/issues/3
-  # pull_request:
+  pull_request:
 
 jobs:
   buildtracker:
