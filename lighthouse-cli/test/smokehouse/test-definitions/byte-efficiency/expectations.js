@@ -212,13 +212,13 @@ const expectations = [
           },
         },
         'uses-responsive-images': {
-          displayValue: 'Potential savings of 53\xa0KB',
           details: {
-            overallSavingsBytes: '>50000',
+            overallSavingsBytes: '82000 +/- 5000',
             items: {
-              0: {wastedPercent: '<46'},
-              1: {wastedPercent: '<46'},
-              length: 2,
+              0: {wastedPercent: '45 +/- 5', url: /lighthouse-1024x680.jpg/},
+              1: {wastedPercent: '72 +/- 5', url: /lighthouse-2048x1356.webp\?size0/},
+              2: {wastedPercent: '45 +/- 5', url: /lighthouse-480x320.webp/},
+              length: 3,
             },
           },
         },
@@ -235,19 +235,23 @@ const expectations = [
             items: [
               {
                 url: 'http://localhost:10200/byte-efficiency/gzip.html',
+                finished: true,
               },
               {
                 url: 'http://localhost:10200/byte-efficiency/script.js?gzip=1',
                 transferSize: '1100 +/- 100',
                 resourceSize: '53000 +/- 1000',
+                finished: true,
               },
               {
                 url: 'http://localhost:10200/byte-efficiency/script.js',
                 transferSize: '53200 +/- 1000',
                 resourceSize: '53000 +/- 1000',
+                finished: true,
               },
               {
                 url: 'http://localhost:10200/favicon.ico',
+                finished: true,
               },
             ],
           },
