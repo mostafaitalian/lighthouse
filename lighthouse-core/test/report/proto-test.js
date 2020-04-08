@@ -6,12 +6,21 @@
 'use strict';
 
 const sampleJson = require('../results/sample_v2.json');
-const roundTripJson = require('../../../proto/sample_v2_round_trip.json');
 const preprocessor = require('../../lib/proto-preprocessor.js');
 
 /* eslint-env jest */
 
-describe('round trip JSON comparison subsets', () => {
+let roundTripJson;
+try {
+  const roundTripPath = '../../../proto/sample_v2_round_trip.json';
+  require(roundTripPath);
+} catch (err) {
+  // eslint-disable-next-line no-console
+  console.warn('Skipping test - you need to run yarn proto-test first.');
+}
+const describeIf = roundTripJson ? describe : describe.skip;
+
+describeIf('round trip JSON comparison subsets', () => {
   let processedLHR;
 
   beforeEach(() => {
@@ -51,7 +60,7 @@ describe('round trip JSON comparison subsets', () => {
   });
 });
 
-describe('round trip JSON comparison to everything', () => {
+describeIf('round trip JSON comparison to everything', () => {
   let processedLHR;
 
   beforeEach(() => {
