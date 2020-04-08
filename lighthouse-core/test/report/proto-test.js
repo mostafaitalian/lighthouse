@@ -16,7 +16,7 @@ try {
   require(roundTripPath);
 } catch (err) {
   // eslint-disable-next-line no-console
-  console.warn('Skipping test - you need to run yarn proto-test first.');
+  console.warn('Skipping test - you need to run yarn test-proto first.');
 }
 const describeIf = roundTripJson ? describe : describe.skip;
 

@@ -27,7 +27,7 @@ try {
     fs.readFileSync(__dirname + '/../../../results/sample_v2.json', 'utf-8');
 } catch (err) {
   // eslint-disable-next-line no-console
-  console.warn('Skipping test - you need to run yarn proto-test first.');
+  console.warn('Skipping test - you need to run yarn test-proto first.');
 }
 const itIf = sampleResultsRoundtripStr ? it : it.skip;
 
