@@ -215,7 +215,7 @@ function aggregateResults(name) {
     /** @type {LH.Result} */
     const lhr = lhrJson && JSON.parse(lhrJson);
     if (!lhr || !lhr.audits) {
-      console.warn(`could not parse ${lhrPath}`);
+      console.warn(`lhr not found at ${lhrPath}`);
       continue;
     }
 
