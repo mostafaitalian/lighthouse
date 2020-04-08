@@ -20,10 +20,16 @@ const CriticalRequestChainRenderer =
     require('../../../../report/html/renderer/crc-details-renderer.js');
 
 const sampleResultsStr = fs.readFileSync(__dirname + '/../../../results/sample_v2.json', 'utf-8');
-const sampleResultsRoundtripStr = fs.readFileSync(
-  __dirname + '/../../../../../proto/sample_v2_round_trip.json',
-  'utf-8'
-);
+
+let sampleResultsRoundtripStr;
+try {
+  sampleResultsRoundtripStr =
+    fs.readFileSync(__dirname + '/../../../results/sample_v2.json', 'utf-8');
+} catch (err) {
+  // eslint-disable-next-line no-console
+  console.warn('Skipping test - you need to run yarn proto-test first.');
+}
+const itIf = sampleResultsRoundtripStr ? it : it.skip;
 
 const TEMPLATE_FILE = fs.readFileSync(
   __dirname + '/../../../../report/html/templates.html',
@@ -64,7 +70,7 @@ describe('DOM', () => {
 
   describe('psi prepareLabData helpers', () => {
     describe('prepareLabData', () => {
-      it('succeeds with LHResult object (roundtrip) input', () => {
+      itIf('succeeds with LHResult object (roundtrip) input', () => {
         const roundTripLHResult = /** @type {LH.Result} */ JSON.parse(sampleResultsRoundtripStr);
         const result = prepareLabData(roundTripLHResult, document);
 
