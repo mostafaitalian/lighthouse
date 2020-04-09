@@ -42,7 +42,7 @@ jobs:
     - run: yarn tsc -p .
 
     - name: Store in buildtracker
-      run: yarn bt-cli upload-build
+      run: yarn bt-cli -vv upload-build
       env:
         # https://buildtracker.dev/docs/guides/github-actions#configuration
         BT_API_AUTH_TOKEN: ${{ secrets.BT_API_AUTH_TOKEN }}
